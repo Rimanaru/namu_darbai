@@ -9,40 +9,36 @@
 </head>
 <body>
 <form action="user.php" method ="POST">
-<input type="text" name="username" placeholder = "Username">
+<input type="text" name="username" placeholder = "Username" required>
 <input type="password" name="data" id="" placeholder = "Password" required>
 <input type="submit" value="ok" class = "submit">
 
 </form>
-<?php if(isset($_SESSION['username'])){?>
-        <p style="color:red; font-size:36px">
-        <?php 
-        echo "Sveiki sugrįžę į puslapį- ". $_SESSION['username'];
-           
-            unset($_SESSION['username']);
-        }
-            else if ($_SESSION['username'] = "") { //sita vieta neveikia, nesupratau kodel
-                echo "  ";
-            }
-         ?>
+<?php if(isset($_SESSION['username'])):?>
+    <p style="color:red; font-size:36px">
+    <?php 
+    echo "Sveiki sugrįžę į puslapį- ". $_SESSION['username'];   
+    unset($_SESSION['username']);
+endif;?>
          </p>
    
          <?php 
- $user = array(
-    'username' => "admin",
-    'password' => "admin123"
-);
-echo $user['username'], $user['password'];
 
-         function chechUser($userName, $password){
-if($user['username'] == $userName   && $user['password'] ==$password  ){ //raso kad $user  Undefined variable, niekaip nesugalvojau kodel jis neapibreztas
-    echo "true";
-    
-}else {
-    echo "false";
-}
+//echo $user['username'], $user['password'];
+
+         function chechUser($userName, $password, $user){
+            if($user['username'] == $userName   && $user['password'] ==$password  ){ //raso kad $user  Undefined variable, niekaip nesugalvojau kodel jis neapibreztas
+                echo "true";
+                
+            }else {
+                echo "false";
+            }
  }
-    chechUser("admin", "admin123")  ;   
+    $user = array(
+        'username' => "admin",
+        'password' => "admin123"
+    );
+    chechUser("admin", "admin123", $user);   
 
          ?>
 
