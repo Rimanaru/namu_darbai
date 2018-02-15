@@ -60,25 +60,23 @@ $current_date = new DateTime("now", new DateTimeZone('UTC'));
 $current_date->setTimezone(new DateTimeZone('Europe/Vilnius'));
 echo $current_date->format("Y-m-d");
 echo "<br>";
-
+$newDate = $current_date->modify('-5 year')->format('Y-m-d');
     foreach($dates as $date){
-        $newDate = $current_date->modify('-5 year')->format('Y-m-d');
-        echo $newDate;
-        echo $current_date-$newDate;
-        if ( $current_date-$newDate<5){
-            
+        
+        
+        if($date > $newDate){
            
+            echo '<pre>';
+            print_r($date);
+            echo '<pre>';
             
-     }
+        }
 
 
-        echo '<pre>';
-        print_r($date);
-        echo '<pre>';
         
     }
   
-//sita pati pabaigsiu
+
 
 
 
