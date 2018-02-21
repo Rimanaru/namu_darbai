@@ -20,7 +20,7 @@ class Post{
 
 
     public function setContent($content) {
-        if( self::MAX_LENGTH<$content){
+        if( self::MAX_LENGTH<strlen($this->content)){
             echo "Max length is:". self::MAX_LENGTH; 
                     }
         $this->content=$content;  
@@ -39,7 +39,7 @@ class Post{
 }
 
 
-//// $post = new Post();
+// $post = new Post();
 // echo $post->getLength();
 // echo "<br>";
 
@@ -48,8 +48,10 @@ class Post{
 
 // $post->setContent("ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss <br>");
 // echo $post->getContent();
+// echo $post->content;
 //$post->setAuthor("ll");
 // echo $post->getAuthor();
+
 
 class Person 
 {
@@ -89,6 +91,7 @@ $person->setId(10);
 echo $person->getId();
 echo "<br>";
 
+
 $post = new Post();
 $post->setTitle("My titile");
 echo $post->getTitle();
@@ -96,5 +99,12 @@ echo "<br>";
 $post->setContent("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s");
 echo $post->getContent();
 echo "<br>";
-$post->setAuhtor($person);
+
+
+
+
+
+$post->setAuthor($person);
+echo $post->getAuthor();
+//var_dump($post->getAuthor());
 
