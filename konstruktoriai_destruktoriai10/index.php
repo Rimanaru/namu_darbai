@@ -60,16 +60,18 @@ return $this->name;
 class Coffee extends Drink{
     public function setDrinkName($name){
         $this->name=$name;
+        
     }
     function __construct($name){
-        echo $name;
+        //echo $name;
+        $coffeedrink->getDrinkName();
     }
     
       
 }
 
-$coffeedrink=new Coffee('coffee' );
+$coffeedrink=new Coffee("Coffee" );
 echo "My new drink is:".$coffeedrink->getDrinkName();
-$coffeedrink->setDrinkName("coffee");
+//$coffeedrink->setDrinkName();
 $drink =new Drink();
 
