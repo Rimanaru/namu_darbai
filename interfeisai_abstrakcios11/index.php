@@ -22,7 +22,7 @@ class Marks{
         $sth->execute();  
     }
     }
-    $marks=new Marks('qqq','ccc','kkk');
+    $marks=new Marks('qqq','ccc','ooo');
     var_dump($marks);
     $marks->save($marks);
 
