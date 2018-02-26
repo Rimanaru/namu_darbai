@@ -22,7 +22,7 @@ class Marks{
         $sth->execute();  
     }
     }
-    $marks=new Marks('qqq','ccc','ooo');
+    $marks=new Marks('mmm','ccc','275');
     var_dump($marks);
     $marks->save($marks);
 
@@ -46,7 +46,7 @@ class Modules {
 
 }
 
-$modules=new Modules('rrr','fff');
+$modules=new Modules('ccc','fff');
 var_dump($modules);
 $modules->save($modules);
 
@@ -72,7 +72,7 @@ public function save(){
 }
 }
 $student=new Students('mmm','lll','sss');
-
+var_dump($student);
 $student->save($student);
 
 

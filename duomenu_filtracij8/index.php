@@ -5,15 +5,8 @@ $password = "";
 $db = "namu_darbu_baze";
 $dsn = "mysql:host=$host;dbname=$db";
 $pdo = new PDO($dsn, $user, $password);
-$sql = "
-// SELECT c.name as marks, 
-// sc.name as module_code
-// sc.name as student_no
-// FROM marks c
-// LEFT JOIN module sc 
-// LEFT JOIN student sc 
-// ON sc.parent_id = c.id";
-// $mark = $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
-// echo '<pre>';
-// print_r($mark);
-// echo '<pre>';
+$sql = "SELECT st.surname, ms.mark, md.module_name FROM students st
+LEFT JOIN marks ms
+ON ms.student_no = st.student_no
+LEFT JOIN modules md
+on md.module_code = ms.module_code";

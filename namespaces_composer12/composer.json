@@ -1,0 +1,14 @@
+{
+    "name": "rima/namespaces_composer12",
+    "authors": [
+        {
+            "name": "rimanaru",
+            "email": "rima.naruseviciute@gmail.com"
+        }
+    ],
+    "require":{},  "autoload": {
+        "psr-4": {
+            "src\\" : "src"
+        }
+    }
+}
