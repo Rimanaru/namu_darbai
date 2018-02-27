@@ -24,7 +24,7 @@ class Students {
           
     }
     }
-    $student=new Students('mmm','lll','sss');
-    var_dump($student);
-    $student->save($student);
+    // $student=new Students('mmm','lll','sss');
+    // var_dump($student);
+    // $student->save($student);
     

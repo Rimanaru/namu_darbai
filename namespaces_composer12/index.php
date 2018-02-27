@@ -1,16 +1,16 @@
 <?php
 require "vendor/autoload.php";
-
+use src\Marks;
 use src\Students;
 use src\Modules;
-use src\Marks;
 
+$marks=new Marks('mmm','ccc','275');
 
-$modules=new Modules;
+$modules=new Modules('rrr','fff');
 
- $marks=new Marks;
+ 
 
-$students=new Students;
+$student=new Students('mmm','lll','sss');
 
  
 //toliau nespejau
@@ -21,11 +21,11 @@ $db = "namu_darbu_baze";
 $dsn = "mysql:host=$host;dbname=$db";
 $pdo = new PDO($dsn, $user, $password);
 $sql = "SELECT * FROM students";
-$sql2 = "SELECT * FROM modules";
+//$sql2 = "SELECT * FROM modules";
 $res = $pdo->query($sql);
-$res1 = $pdo->query($sql1);
+//$res1 = $pdo->query($sql1);
 $cats = $res->fetchAll(PDO::FETCH_ASSOC);
-$cats1 = $res1->fetchAll(PDO::FETCH_ASSOC);
+//$cats1 = $res1->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,7 +45,7 @@ $cats1 = $res1->fetchAll(PDO::FETCH_ASSOC);
  <form action="index.php" method="POST">
         <select name="modules">
             <?php foreach($modules as $module_code): ?>
-                <option value="<?php echo $modules["module_code"]; ?>"</option>
+                <option value="<?php echo $array["module_code"]; ?>"</option>
             <?php endforeach; ?>
         </select>
         <select name="module" id="">

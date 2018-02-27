@@ -13,13 +13,13 @@ class Marks{
         $pdo = new PDO("mysql:host=localhost;dbname=namu_darbu_baze", "root","");
         $sql = "INSERT INTO marks (student_no, module_code, mark) VALUES (:student_no, :module_code,:mark)";
         $sth = $pdo->prepare($sql);
-      
-        $sth->bindParam(':student_no', $this->student_no);
-        $sth->bindParam(':module_code', $this->module_code);
-        $sth->bindParam(':mark', $this->mark);
         
       
-        $sth->execute();  
+        $sth->execute([
+            'student_no' => $this->student_no,
+            'module_code' => $this->module_code,
+            'mark' => $this->mark,
+        ]) ;  
     }
     }
     $marks=new Marks('mmm','ccc','275');

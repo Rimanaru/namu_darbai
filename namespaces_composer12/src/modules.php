@@ -1,5 +1,6 @@
 <?php
 namespace src;
+use PDO;
 
 
 class Modules {
@@ -12,7 +13,7 @@ class Modules {
         $this->module_name=$module_name;
     }
     public function save(){
-        return "Cia tiesiog suo!";
+        //return "Cia tiesiog suo!";
         $pdo = new PDO("mysql:host=localhost;dbname=namu_darbu_baze", "root","");
         $sql = "INSERT INTO modules (module_code, module_name,) VALUES (:module_code,:module_name)";
       $sth = $pdo->prepare($sql);
@@ -24,7 +25,7 @@ class Modules {
      }
 
 }
-$modules=new Modules;
-$modules=new Modules('rrr','fff');
- var_dump($modules);
-echo $modules->save($modules);
+
+// $modules=new Modules('rrr','fff');
+//  var_dump($modules);
+//echo $modules->save($modules);

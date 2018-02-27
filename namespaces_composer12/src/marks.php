@@ -1,7 +1,7 @@
 <?php
 
 namespace src;
-
+use PDO;
 class Marks{
     public $student_no=null;
     public $module_code=null;
@@ -26,6 +26,6 @@ class Marks{
         
     }
     }
-    $marks=new Marks('mmm','ccc','275');
-    var_dump($marks);
-    $marks->save($marks);
+    //$marks=new Marks('mmm','ccc','275');
+    //var_dump($marks);
+    //$marks->save($marks);
