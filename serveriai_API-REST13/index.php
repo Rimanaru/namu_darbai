@@ -12,27 +12,7 @@
   <body>
   <?php $data = json_decode(file_get_contents("https://api.chucknorris.io/jokes/random")); 
    
-  //var_dump($data);
-  ?>
-    <!-- <H2>chack norris:</H2>
-    <table class="table table-striped table-hover"> 
-    <tr>
-        <th>Category</th>
-        <th>Icon_url</th>
-        <th>Id</th>
-        <th>URL</th>
-        <th>Value</th>
-    </tr> -->
-  <?php 
-  foreach($data as $key=>$value):
-    
-     echo  $key."    " .$value. "<br>"; 
-    
-  endforeach;  ?>
- 
-
   
- <?php 
  class Chack{
   
    public $category=null;
@@ -51,12 +31,18 @@
     $sth->bindParam(': url', $this->_url);
     $sth->bindParam(': value', $this->_value);
   
-        $sth->execute();  
+        $sth->execute();
+        foreach($data as $key=>$value):
+          $chack->save($chack);
+          $chack->icon_url = $value->icon_url;
+           echo  $key."    " .$value. "<br>"; 
+          
+        endforeach;  
   }
  }
  
 
-$chack= new Chack();
+$chack= new Chack($category,$icon_url,$id,$url,$value);
 $chack->save($chack)
   ?>
 </table>
