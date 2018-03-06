@@ -7,7 +7,7 @@ use PHPMailer\PHPMailer\Exception;
 
 $pdo = new PDO("mysql:host=localhost;dbname=namu_darbu_baze", "root","");
 $sql = "INSERT INTO messages (gavejas, subject, text) VALUES (:gavejas,:subject,:text)";
-
+$sth = $pdo->prepare($sql);
 $mail = new PHPMailer(true); // Passing `true` enables exceptions
 try {   
                 
@@ -39,17 +39,18 @@ try {
  };
      //send mail
       
-     $mail->send(
-       // cia masyvas, kuri reikia ikelti, pries tai prisijungiau ir sukuriau nauja PDO
-                    $data=[
-                        "gavejas" => $_POST["gavejas"],
-                        "subject" => $_POST["subject"],
-                        "text" => $_POST["text"]]
+     $data=[
+        "gavejas" => $_POST["gavejas"],
+        "subject" => $_POST["subject"],
+        "text" => $_POST["text"]]
 
-                    $sth->execute($data); //kodel sitas nepatinka?
-                   ); 
+    $sth->execute($data); //kodel sitas nepatinka?
+     $mail->send();
+       // cia masyvas, kuri reikia ikelti, pries tai prisijungiau ir sukuriau nauja PDO
+                    
+                 
                 
-   $mail->send();
+
       
         header("Location:index.php");      
     
