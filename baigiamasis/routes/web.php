@@ -19,4 +19,5 @@ Auth::routes();
 
 Route::get('/', 'OrderingsController@index');
 Route::resource('orderings', 'OrderingsController');
+Route::resource('admins', 'AdminsController');
 

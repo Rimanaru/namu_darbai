@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Ordering;
+use App\Attachment;
 use Illuminate\Http\Request;
 use Cornford\Googlmapper\Mapper;
 use Illuminate\Support\Facades\Auth;
@@ -49,7 +50,7 @@ class OrderingsController extends Controller
         $post->user = Auth::id();
         $post->save();
         $request->session()->flash('message', 'Užsakymas sukurtas!');
-        return redirect(route('orderings.index'));
+     
         if ($request->hasFile('attachments')) {
             foreach($request->attachments as $attachment)
             {
@@ -57,11 +58,12 @@ class OrderingsController extends Controller
                $path = Storage::putFile('public', $attachment);
                
                $ordering_att = new Attachment();
-               $ordering_att->ordering_id = $ordering->id;
-               $ordering_att->path = $path;
-               $ordering_att->original_name = $original_name;
+               $ordering_att->ordering_id=$ordering_id;
+               $ordering_att->path=$path;
+               $ordering_att->original_name=$original_name;
                $ordering_att->save();
             }
+            return redirect(route('orderings.index'));
         }
     
 
